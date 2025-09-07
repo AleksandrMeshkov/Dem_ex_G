@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2d57a3acbabb44539951f813ec959927" Name="Diagram1">
+        <EntityTypeShape EntityType="New_technologiesModel.Directors" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_technologiesModel.LegalAdresses" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_technologiesModel.MaterialType" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_technologiesModel.Partners" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_technologiesModel.PartnerType" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_technologiesModel.Product" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_technologiesModel.ProductRequest" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_technologiesModel.ProductType" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="New_technologiesModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="New_technologiesModel.FK_Partners_Directors" ManuallyRouted="false" />
+        <AssociationConnector Association="New_technologiesModel.FK_Partners_LegalAdresses" ManuallyRouted="false" />
+        <AssociationConnector Association="New_technologiesModel.FK_Product_MaterialType" ManuallyRouted="false" />
+        <AssociationConnector Association="New_technologiesModel.FK_Partners_PartnerType" ManuallyRouted="false" />
+        <AssociationConnector Association="New_technologiesModel.FK_ProductRequest_Partners" ManuallyRouted="false" />
+        <AssociationConnector Association="New_technologiesModel.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="New_technologiesModel.FK_ProductRequest_Product" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
