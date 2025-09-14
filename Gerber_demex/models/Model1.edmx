@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Directors_id" />
           </Key>
-          <Property Name="Directors_id" Type="int" Nullable="false" />
+          <Property Name="Directors_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Surname" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Patronymic" Type="varchar" MaxLength="30" />
@@ -18,7 +18,7 @@
           <Key>
             <PropertyRef Name="Adress_id" />
           </Key>
-          <Property Name="Adress_id" Type="int" Nullable="false" />
+          <Property Name="Adress_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Legal_index" Type="bigint" Nullable="false" />
           <Property Name="Region" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Locality" Type="varchar" MaxLength="50" Nullable="false" />
@@ -29,7 +29,7 @@
           <Key>
             <PropertyRef Name="Type_id" />
           </Key>
-          <Property Name="Type_id" Type="int" Nullable="false" />
+          <Property Name="Type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="BreakPercent" Type="decimal" Precision="5" Scale="3" Nullable="false" />
         </EntityType>
@@ -37,13 +37,13 @@
           <Key>
             <PropertyRef Name="Partners_id" />
           </Key>
-          <Property Name="Partners_id" Type="int" Nullable="false" />
+          <Property Name="Partners_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PartnerType_id" Type="int" Nullable="false" />
-          <Property Name="Director_id" Type="int" Nullable="false" />
-          <Property Name="LeagalAdress_id" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Director_id" Type="int" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Phone" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="LeagalAdress_id" Type="int" Nullable="false" />
           <Property Name="INN" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="Rating" Type="int" Nullable="false" />
         </EntityType>
@@ -51,14 +51,14 @@
           <Key>
             <PropertyRef Name="Type_id" />
           </Key>
-          <Property Name="Type_id" Type="int" Nullable="false" />
+          <Property Name="Type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="Product_id" />
           </Key>
-          <Property Name="Product_id" Type="int" Nullable="false" />
+          <Property Name="Product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type_id" Type="int" Nullable="false" />
           <Property Name="Material_Type_id" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
@@ -69,7 +69,7 @@
           <Key>
             <PropertyRef Name="Request_id" />
           </Key>
-          <Property Name="Request_id" Type="int" Nullable="false" />
+          <Property Name="Request_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Product_id" Type="int" Nullable="false" />
           <Property Name="Partners_id" Type="int" Nullable="false" />
           <Property Name="Count" Type="int" Nullable="false" />
@@ -78,7 +78,7 @@
           <Key>
             <PropertyRef Name="Type_id" />
           </Key>
-          <Property Name="Type_id" Type="int" Nullable="false" />
+          <Property Name="Type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="TypeKef" Type="decimal" Precision="5" Scale="3" Nullable="false" />
         </EntityType>
@@ -266,7 +266,7 @@
           <NavigationProperty Name="LegalAdresses" Relationship="Self.FK_Partners_LegalAdresses" FromRole="Partners" ToRole="LegalAdresses" />
           <NavigationProperty Name="PartnerType" Relationship="Self.FK_Partners_PartnerType" FromRole="Partners" ToRole="PartnerType" />
           <NavigationProperty Name="ProductRequest" Relationship="Self.FK_ProductRequest_Partners" FromRole="Partners" ToRole="ProductRequest" />
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PartnerType">
           <Key>

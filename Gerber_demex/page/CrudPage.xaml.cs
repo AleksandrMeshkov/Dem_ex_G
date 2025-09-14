@@ -10,13 +10,12 @@ namespace Gerber_demex.page
 {
     public partial class CrudPage : Page
     {
-        private tehnEntities _context;
+        private tehnEntities context = new tehnEntities();
         private List<ProductRequest> _requests;
 
         public CrudPage()
         {
             InitializeComponent();
-            _context = Helper.GetContext();
             LoadData();
         }
 
@@ -24,12 +23,13 @@ namespace Gerber_demex.page
         {
             try
             {
-                _requests = _context.ProductRequest
-                    .Include("Product")
-                    .Include("Partners")
-                    .ToList();
+                    _requests = context.ProductRequest
+                        .Include("Product")//таблица продуктов
+                        .Include("Partners")//таблица партнеров
+                        .ToList();
 
-                dgRequests.ItemsSource = _requests;
+                    dgRequests.ItemsSource = _requests;
+                
             }
             catch (Exception ex)
             {
@@ -39,13 +39,13 @@ namespace Gerber_demex.page
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEditRequestPage(null));
+            NavigationService.Navigate(new AddEditRequestPage(null));//навигация между страницами
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             var selectedRequest = dgRequests.SelectedItem as ProductRequest;
-            if (selectedRequest != null)
+            if (selectedRequest != null)//клик по заявке для редактирования 
             {
                 NavigationService.Navigate(new AddEditRequestPage(selectedRequest));
             }
@@ -67,10 +67,19 @@ namespace Gerber_demex.page
                 {
                     try
                     {
-                        _context.ProductRequest.Remove(selectedRequest);
-                        _context.SaveChanges();
-                        LoadData(); 
-                        MessageBox.Show("Заявка успешно удалена");
+                        using (var context = Helper.GetContext())
+                        {
+                            var entityToDelete = context.ProductRequest
+                                .FirstOrDefault(pr => pr.Request_id == selectedRequest.Request_id);
+
+                            if (entityToDelete != null)
+                            {
+                                context.ProductRequest.Remove(entityToDelete);
+                                context.SaveChanges();// сохранение данных
+                                LoadData();
+                                MessageBox.Show("Заявка успешно удалена");
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -82,6 +91,11 @@ namespace Gerber_demex.page
             {
                 MessageBox.Show("Выберите заявку для удаления");
             }
+        }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            LoadData();
         }
 
         private void dgRequests_SelectionChanged(object sender, SelectionChangedEventArgs e)

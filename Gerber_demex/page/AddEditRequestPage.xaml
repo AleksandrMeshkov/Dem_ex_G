@@ -16,9 +16,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Форма заявки" 
-                   FontSize="18" FontWeight="Bold" 
-                   Margin="0,0,0,20"/>
+        
 
         <StackPanel Grid.Row="1" Width="400">
             <TextBlock Text="Продукт:" Margin="0,0,0,5"/>
@@ -34,9 +32,9 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="btnSave" Content="Сохранить" Click="btnSave_Click" 
+            <Button x:Name="btnSave" Background="#0C4882" Foreground="White" Content="Сохранить" Click="btnSave_Click" 
                    Width="100" Margin="5"/>
-            <Button x:Name="btnCancel" Content="Отмена" Click="btnCancel_Click" 
+            <Button x:Name="btnCancel" Background="#0C4882" Foreground="White" Content="Отмена" Click="btnCancel_Click" 
                    Width="100" Margin="5"/>
         </StackPanel>
     </Grid>

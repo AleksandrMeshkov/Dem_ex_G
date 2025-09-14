@@ -1,21 +1,23 @@
 ﻿using Gerber_demex.helpersClass;
+using Gerber_demex.models;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows.Controls;
-
 namespace Gerber_demex.page
 {
     public partial class aplicationPage : Page
     {
+        private tehnEntities context = new tehnEntities(); //экземпляр контекста 
         public aplicationPage()
         {
             InitializeComponent();
             LoadAplicationData();
+            
         }
 
         private void LoadAplicationData()
         {
-            using (var context = Helper.GetContext())
-            {
+
                 var query = from pr in context.ProductRequest
                             select new
                             {
@@ -33,17 +35,17 @@ namespace Gerber_demex.page
                         PartnerTypeName = x.Type + " | " + x.Name,
                         FullAddress = x.Address.Legal_index + ", " +
                                      x.Address.Region + ", " +
-                                     x.Address.Locality + ", " +
+                                     x.Address.Locality + ", " + //запрос на вывод данных
                                      x.Address.Street + ", " +
                                      x.Address.House_number,
                         Phone = x.Phone,
                         RatingString = "Рейтинг: " + x.Rating,
                         TotalCostString = x.Cost.ToString("N2")
                     })
-                    .ToList();
+                    .ToList();// вывод в лист
 
                 PartnersList.ItemsSource = result;
-            }
+            
         }
     }
 }

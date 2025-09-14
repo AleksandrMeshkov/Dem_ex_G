@@ -12,31 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static System.Net.Mime.MediaTypeNames;
 using Gerber_demex.page;
 
 namespace Gerber_demex
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            frameCont.Content = new menuPage();
-
+            FrameCont.Content = new menuPage();// выделяем основную страницу и выводим ее
         }
 
         private void clickZayavki(object sender, RoutedEventArgs e)
         {
-            
-        }
 
-        private void frContent_Content_ContentRendered(object sender, NavigationEventArgs e)
-        {
-            btBack.Visibility = frameCont.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void frContent_Navigated(object sender, NavigationEventArgs e)
@@ -44,17 +34,37 @@ namespace Gerber_demex
 
         }
 
-        private void clickBack(object sender, RoutedEventArgs e)
+        private void ClickBack(object sender, RoutedEventArgs e)
         {
-            if (frameCont.CanGoBack)
+            if (FrameCont.CanGoBack)
             {
-                frameCont.GoBack();
+                FrameCont.GoBack();// возвращение назад
             }
         }
 
-        private void frContent_Content_ContentRendered(object sender, EventArgs e)
+        private void FrameCont_ContentRendered(object sender, EventArgs e) //функиця для скрытия кнопки и изменения заголовка страниц
         {
+            if (FrameCont.Content is aplicationPage)
+            {
+                btBack.Visibility = Visibility.Visible;
+                Title.Text = "Просмотр заявок";
+            }
+            else if (FrameCont.Content is CrudPage)
+            {
+                btBack.Visibility = Visibility.Visible;
+                Title.Text = "Редактирование заявки";
+            }
+            else if (FrameCont.Content is menuPage)
+            {
+                btBack.Visibility = Visibility.Hidden;
+                Title.Text = "Главное меню";
+            }
+            else
+            {
+                
+                btBack.Visibility = Visibility.Collapsed;
 
+            }
         }
     }
 }

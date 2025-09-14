@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gerber_demex"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="Новые технологии" Height="450" Width="800"
         WindowStartupLocation = "CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
@@ -27,10 +27,11 @@
                 Content="Назад" 
                 HorizontalAlignment="Right" 
                 VerticalAlignment="Center" 
-                Click="clickBack" 
+                Click="ClickBack" 
                 Width="150" 
                 Height="35"
-                Margin="0,0,30,0">
+                Margin="0,0,30,0"
+                Visibility="Collapsed">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="#0C4882" 
@@ -46,14 +47,23 @@
                     </Button.Template>
                 </Button>
             </Grid>
+            <Grid Grid.Column="1" HorizontalAlignment="Center">
+                <TextBlock x:Name="Title" 
+                       HorizontalAlignment="Center" 
+                       Foreground="#0C4882" 
+                       FontFamily="Bahnschrift Light SemiCondensed" 
+                       FontSize="24" 
+                       FontWeight="ExtraBold" 
+                       Margin="0,0,100,0"
+                       VerticalAlignment="Center"/>
+            </Grid>
         </Grid>
 
-        <Frame x:Name="frameCont" 
+        <Frame x:Name="FrameCont" 
                Grid.Row="1" 
                NavigationUIVisibility="Hidden" 
-               ContentRendered="frContent_Content_ContentRendered" 
+               ContentRendered="FrameCont_ContentRendered" 
                Navigated="frContent_Navigated"/>
 
     </Grid>
-    
 </Window>

@@ -14,7 +14,7 @@ namespace Gerber_demex.helpersClass
         {
             if (_context == null)
             {
-                _context = new tehnEntities();
+                _context = new tehnEntities();// делаем контекст базы доступной для использования
             }
             return _context;
         }

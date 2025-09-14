@@ -53,17 +53,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <TextBlock Grid.ColumnSpan="2" 
-           HorizontalAlignment="Center" 
-           VerticalAlignment="Center" 
-           Width="130"
-           FontFamily="Bahnschrift Light SemiCondensed"
-           Height="60"
-           Margin="0,0,0,150"
-           Foreground="#0C4882"
-           FontSize="55">Меню
-           
-        </TextBlock>
+        
 
 
     </Grid>
